@@ -17,7 +17,7 @@ class CreateLocationsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('description');
-            $table->json('radius');
+            $table->jsonb('radius');
             $table->float('latitude');
             $table->float('longitude');
             $table->timestamps();

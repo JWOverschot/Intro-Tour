@@ -26,7 +26,6 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
 	private apiUrl: string = 'http://intro-tour.local/api/';
 	public tableData: any = SCORES;
 	private tourID: number = 1;
-
 	private teams$: Observable<Team>;
 
 	private sortArrayByScore(teams) {

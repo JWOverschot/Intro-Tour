@@ -58,7 +58,8 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $events = event_tour::with('event')->with('tour')->where('tour_id', '=', $id)->get();
+        return $events;
     }
 
     /**

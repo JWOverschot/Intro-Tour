@@ -62,14 +62,14 @@ Route::delete('tours/{tour}', 'TourController@delete');
 
 /* Teams */
 Route::get('teams', 'TeamController@index');
-Route::get('teams/{team}', 'TeamController@show');
+Route::get('teams/{pin}', 'TeamController@show');
 Route::post('teams', 'TeamController@store');
 Route::put('teams/{team}', 'TeamController@update');
 Route::delete('teams/{team}', 'TeamController@delete');
 
 /* Events */
 Route::get('events', 'EventController@index');
-
+Route::get('events/{id}', 'EventController@show');
 /* locations */
 Route::get('locations', 'LocationController@index');
 Route::get('locations/{id}', 'LocationController@show');

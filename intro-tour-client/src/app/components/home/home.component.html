@@ -1,12 +1,14 @@
 <div id="homepage">
   <div class="ui card">
     <div class="content">
-      <div class="header">Welkom {{name}}</div>
+      <div class="header">Welkom {{usr.name}}</div>
     </div>
     <div class="content">
-      <h4 class="ui sub header">{{teamName}}</h4>
-      <h4 class="ui sub header">De team pincode is: {{teamPin}}</h4>
+      <h4 class="ui sub header">{{team.team_name}}</h4>
+      <h4 class="ui sub header">De team pincode is: {{team.team_pin}}</h4>
     </div>
-  </div>  
+  </div>
+  <div class="bottom">
+    <button class="ui button green big btn" (click)="getUsr()">Bekijk Team Info</button>
+  </div>
 </div>
-

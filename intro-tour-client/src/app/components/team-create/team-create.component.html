@@ -15,7 +15,7 @@
 					<input  [(ngModel)]="team.tour_id" type="number" placeholder="Tour ID" (keyup.enter)="onKeyUp()" name="tour_id">
 				</div><br>
 				<div class="ui massive input" id="name_input">
-					<input  [(ngModel)]="team.team_name" type="text" placeholder="Team Naam" name="team-name">
+					<input  [(ngModel)]="team.team_name" type="text" placeholder="Team Naam" name="team-name" maxlength="20">
 				</div><br>
 				<div>
 					<input id="submit-button" type="submit" class="massive one ui blue button" value="GO!" (click)="createTeamAndUser()" >

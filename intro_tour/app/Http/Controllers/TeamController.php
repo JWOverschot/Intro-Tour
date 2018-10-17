@@ -49,12 +49,12 @@ class TeamController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Team  $team
+     * @param  $pin
      * @return \Illuminate\Http\Response
      */
-    public function show(Team $team)
+    public function show($pin)
     {
-		return $team;
+        return Team::where('team_pin', $pin)->get();
     }
     
     /**

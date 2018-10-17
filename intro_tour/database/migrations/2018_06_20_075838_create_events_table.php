@@ -15,8 +15,8 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
-            $table->json('trigger')->nullable();
-            $table->json('action')->nullable();
+            $table->jsonb('trigger')->nullable();
+            $table->jsonb('action')->nullable();
             $table->timestamps();
         });
     }

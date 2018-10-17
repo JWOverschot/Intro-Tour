@@ -50,6 +50,59 @@ agm-map{
     left: 50%;
     transform: translate(-50%);
 }
+.feedback-window{
+    z-index: 10001;
+    position: fixed;
+    background-color: white;
+    box-shadow: 2px 2px 5px 2px rgba(0,0,0,.3);
+    border-radius: 5px;
+    top: 50%;
+    left: 2.5%;
+    width: 95%;
+    height: 50%;
+    transform: translate(0%, -50%);
+    display: none;
+}
+.feedback-title{
+    font-size: 25px;
+    font-family: 'Bree Serif', serif;
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translate(0%, -50%);
+    
+}
+.bar{
+    height: 20%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(0, 255, 0, 0.5);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.center{
+    position: absolute;
+    top: 20%;
+    margin: 20px;
+}
+.center p{
+    font-size: 23px;
+}
+.bottom{
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+}
+.wrong .bottom{
+    display: flex;
+    margin: 20px;
+}
+.wrong .bar{
+    background-color: rgba(255, 0, 0, 0.5);
+}
+.info-window-title{
+    font-weight: bold;
+}
 @keyframes animatebottom {
     from {top: 80%; opacity: 0;}
     to {top: 10%; opacity: 1;}
