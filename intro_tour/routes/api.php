@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Laravel\Passport\Client;
 use App\Participant;
 use App\Admin;
 use App\Tour;
@@ -25,12 +26,14 @@ use App\Question;
 // });
 
 /* Auth */
+Route::post('user', 'UserController@singup');
+Route::post('user/singin', 'UserController@singin');
 // Route::group([
 //     'prefix' => 'auth'
 // ], function () {
 //     Route::post('login', 'AuthController@login');
-//     Route::post('signup', 'AuthController@signup');
-  
+// 	Route::post('signup', 'AuthController@signup');
+	
 //     Route::group([
 //       'middleware' => 'auth:api'
 //     ], function() {
@@ -38,6 +41,13 @@ use App\Question;
 //         Route::get('user', 'AuthController@user');
 //     });
 // });
+
+// Route::apiResource('/tours','TourController');
+// Route::apiResource('/teams','TeamController');
+// Route::apiResource('/participants','ParticipantController');
+// Route::apiResource('/events','EventController');
+// Route::apiResource('/locations','LocationController');
+// Route::apiResource('/questions','QuestionController');
 
 /* Participants routes */
 Route::get('participants', 'ParticipantController@index');
@@ -76,3 +86,33 @@ Route::get('locations/{id}', 'LocationController@show');
 
 /* questions */
 Route::get('questions/{id}', 'QuestionController@show');
+
+
+Route::post('/register-user', function (Request $request) {
+
+	$name = $request->input('name');
+	$team_id = $request->input('team_id');
+
+    // save new user
+    $user = Participant::create([
+		'name' => $name,
+		'team_id' => $team_id,
+    ]);
+
+
+    // create oauth client
+    $oauth_client = Client::create([
+        'user_id' => $user->id,
+        'name' => $name,
+        'secret' => '',
+        'password_client' => 0,
+        'personal_access_client' => 1,
+        'redirect' => '',
+        'revoked' => 0,
+    ]);
+
+
+    return [
+        'message' => 'participant successfully created.'
+    ];
+});

@@ -22,15 +22,15 @@ import * as $ from 'jquery';
 export class TeamCreateComponent implements OnInit {
 
 	constructor(
-		private http: HttpClient, 
+		private http: HttpClient,
 		private router: Router,
-		private userName: UserNameService, 
-		private teamService: TeamService, 
+		private userName: UserNameService,
+		private teamService: TeamService,
 		private messagesServices: MessagesService,
 		private tourService: TourService,
 		private participantService: ParticipantsService
 	) { }
-  
+
 	player: Player = {
 		name: '',
 		tour_id: null,
@@ -44,7 +44,7 @@ export class TeamCreateComponent implements OnInit {
 	}
 	public user: User = {
 		name: '',
-    role: '',
+		role: '',
 		team_id: null
 	}
 	private teamId: number;
@@ -78,17 +78,17 @@ export class TeamCreateComponent implements OnInit {
 		if (this.team.tour_id !== null) {
 			//this.http.get(this.apiUrl + 'tours/' + this.team.tour_id) old
 			this.tourService.getTour(this.team.tour_id)
-			.subscribe(
-				(res:Response) => {
-					this.createTeam();
-				},
-				err => {
-					this.removeLodaer();
-					document.getElementById('tour_id_input').classList.add('error');
-					this.messagesServices.setMessage(MessageTypes.Error, 'Fout', 'Tour ID bestaat niet');
-					console.error(err);
-				}
-			);
+				.subscribe(
+					(res: Response) => {
+						this.createTeam();
+					},
+					err => {
+						this.removeLodaer();
+						document.getElementById('tour_id_input').classList.add('error');
+						this.messagesServices.setMessage(MessageTypes.Error, 'Fout', 'Tour ID bestaat niet');
+						console.error(err);
+					}
+				);
 		}
 	}
 
@@ -97,17 +97,17 @@ export class TeamCreateComponent implements OnInit {
 		this.teamService.teamName(this.team.team_name);
 		//this.http.post(this.apiUrl + 'teams', this.team) old
 		this.teamService.createTeam(this.team)
-		.subscribe(
-        (res:Team) => {
-			this.team.team_pin = res.team_pin;
-			this.createUser(res);
-        },
-        err => {
-			console.error(err);
-			this.removeLodaer();
-			this.messagesServices.setMessage(MessageTypes.Error, 'Server Fout', 'Er is een fout met de server opgetreden');
-        }
-      );
+			.subscribe(
+				(res: Team) => {
+					this.team.team_pin = res.team_pin;
+					this.createUser(res);
+				},
+				err => {
+					console.error(err);
+					this.removeLodaer();
+					this.messagesServices.setMessage(MessageTypes.Error, 'Server Fout', 'Er is een fout met de server opgetreden');
+				}
+			);
 	}
 
 	// Post call to create new user
@@ -117,17 +117,17 @@ export class TeamCreateComponent implements OnInit {
 		this.user.name = this.player.name;
 		//this.http.post(this.apiUrl + 'participants', this.user) old
 		this.participantService.createUser(this.user)
-		.subscribe(
-			(res:Response) => {
-				this.updateTeam(res);
-				this.userName.userId(res);
-			},
-			err => {
-				console.error(err);
-				this.removeLodaer();
-				this.messagesServices.setMessage(MessageTypes.Error, 'Server Fout', 'Er is een fout met de server opgetreden');
-			}
-		);
+			.subscribe(
+				(res: Response) => {
+					this.updateTeam(res);
+					this.userName.userId(res);
+				},
+				err => {
+					console.error(err);
+					this.removeLodaer();
+					this.messagesServices.setMessage(MessageTypes.Error, 'Server Fout', 'Er is een fout met de server opgetreden');
+				}
+			);
 	}
 
 	// Updates team to add the id of the team leader
@@ -135,19 +135,19 @@ export class TeamCreateComponent implements OnInit {
 		this.team.team_leader = userRes.id;
 		console.log(this.team);
 		//this.http.put(this.apiUrl + 'teams/' + this.teamId, {team_leader: this.team.team_leader}) old
-		this.teamService.updateTeam(this.teamId, {team_leader: this.team.team_leader})
-		.subscribe(
-			(res:Response) => {
-				this.sendTeamInfoToNextPage();
-				this.removeLodaer();
-				this.router.navigateByUrl('home');
-			},
-			err => {
-				console.error(err);
-				this.removeLodaer();
-				this.messagesServices.setMessage(MessageTypes.Error, 'Server Fout', 'Er is een fout met de server opgetreden');
-			}
-		);
+		this.teamService.updateTeam(this.teamId, { team_leader: this.team.team_leader })
+			.subscribe(
+				(res: Response) => {
+					this.sendTeamInfoToNextPage();
+					this.removeLodaer();
+					this.router.navigateByUrl('home');
+				},
+				err => {
+					console.error(err);
+					this.removeLodaer();
+					this.messagesServices.setMessage(MessageTypes.Error, 'Server Fout', 'Er is een fout met de server opgetreden');
+				}
+			);
 	}
 
 	public createTeamAndUser() {
