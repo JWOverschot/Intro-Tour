@@ -3,11 +3,13 @@ import { Component, OnInit } from '@angular/core';
 
 import { Event } from 'src/app/event';
 import { Location } from 'src/app/location';
+import { MessageTypes } from 'src/app/message-types'
 
 //services
 import { LocationService } from 'src/app/services/location.service';
 import { AdminService } from 'src/app/services/admin.service';
 import { EventService } from 'src/app/services/event.service';
+import { MessagesService } from 'src/app/services/messages.service';
 
 import * as $ from 'jquery';
 
@@ -46,7 +48,8 @@ export class EventComponent implements OnInit {
 	constructor(
 		private locationService: LocationService,
 		private adminService: AdminService,
-		private eventService: EventService
+		private eventService: EventService,
+		private messagesService: MessagesService
 	) { }
 
 	ngOnInit() {
@@ -83,7 +86,10 @@ export class EventComponent implements OnInit {
 								});
 						});
 					});
-			});
+			},
+				(err) => {
+					this.messagesService.setMessage(MessageTypes.Error, 'Oeps', 'Server fout.');
+				});
 	}
 
 	public getLocation() {
