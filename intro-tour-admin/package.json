@@ -11,8 +11,8 @@
 	},
 	"private": true,
 	"dependencies": {
-		"@angular/animations": "^6.0.3",
 		"@agm/core": "^1.0.0-beta.5",
+		"@angular/animations": "^6.0.3",
 		"@angular/common": "^6.0.3",
 		"@angular/compiler": "^6.0.3",
 		"@angular/core": "^6.0.3",
@@ -21,9 +21,10 @@
 		"@angular/platform-browser": "^6.0.3",
 		"@angular/platform-browser-dynamic": "^6.0.3",
 		"@angular/router": "^6.0.3",
+		"@types/jquery": "^3.3.27",
 		"core-js": "^2.5.4",
-		"moment": "^2.22.2",
 		"jquery": "^3.3.1",
+		"moment": "^2.22.2",
 		"rxjs": "^6.0.0",
 		"semantic-ui-css": "^2.4.1",
 		"zone.js": "^0.8.26"
