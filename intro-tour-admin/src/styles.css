@@ -1,5 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 
+/*~~Make messages float on page~~*/
+.ui.message {
+    position: absolute;
+    width: 100%;
+    top: 60px;
+    z-index: 1000;
+    margin: 0;
+}
+/*~~~~*/
+
 /*~~Remove spin buttons from number input fields~~*/
 input[type=number].no-spin-btn::-webkit-inner-spin-button, 
 input[type=number].no-spin-btn::-webkit-outer-spin-button { 
