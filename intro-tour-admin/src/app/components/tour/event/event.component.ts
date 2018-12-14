@@ -1,21 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 // classes
 
-import { Event } from '../../event';
-import { Location } from '../../location';
+import { Event } from 'src/app/event';
+import { Location } from 'src/app/location';
 
 //services
-import { LocationService } from '../../services/location.service';
-import { AdminService } from '../../services/admin.service';
-import { EventService } from '../../services/event.service';
+import { LocationService } from 'src/app/services/location.service';
+import { AdminService } from 'src/app/services/admin.service';
+import { EventService } from 'src/app/services/event.service';
 
 import * as $ from 'jquery';
-
-import { Time } from 'src/app/time';
-import { Tour } from 'src/app/tour';
-import { TourService } from 'src/app/services/tour.service';
-
-import * as moment from 'moment';
 
 @Component({
 	selector: 'app-event',
@@ -35,14 +29,14 @@ export class EventComponent implements OnInit {
 	chosen_long = null;
 
 	range = 12;
-	name: string = 'Naam';
-	description: string = 'Omschrijving';
+	name: string
+	description: string
 
 	events = [];
 
 	location: Location = {
-		name: '',
-		description: '',
+		name: undefined,
+		description: undefined,
 		radius: { "data": 12, "type": "circle" },
 		latitude: undefined,
 		longitude: undefined
@@ -52,8 +46,7 @@ export class EventComponent implements OnInit {
 	constructor(
 		private locationService: LocationService,
 		private adminService: AdminService,
-		private eventService: EventService,
-		private tourService: TourService
+		private eventService: EventService
 	) { }
 
 	ngOnInit() {
@@ -154,6 +147,8 @@ export class EventComponent implements OnInit {
 
 						this.eventService.createEventTour(event_tour)
 							.subscribe(() => {
+								this.name = undefined;
+								this.description = undefined;
 								this.getEventsByTour();
 							});
 
@@ -161,50 +156,4 @@ export class EventComponent implements OnInit {
 
 			}, (err) => { console.log(err) });
 	}
-	public time: Time = {
-		h: undefined,
-		m: undefined,
-		s: undefined,
-		ms: undefined
-	}
-
-	private totalTime() {
-		let time: Time = new Time;
-
-		for (var key in this.time) {
-			if (this.time.hasOwnProperty(key)) {
-				if (this.time[key] === undefined || parseInt(this.time[key]) < 0 || this.time[key] === '') {
-					time[key] = 0;
-				}
-				else {
-					let thisTime = this.time[key].replace(/[^0-9]/g, '');
-					time[key] = parseInt(thisTime);
-				}
-			}
-		}
-		return (time.h * 3600) + (time.m * 60) + time.s;
-	}
-
-	public makeTour() {
-		let tour: Tour = new Tour;
-
-		tour = {
-			name: 'Test Tour',
-			description: 'New tour',
-			team_limit: 5,
-			time_limit: this.totalTime(),
-			time_start: undefined,
-			tour_code: 776655
-		}
-
-		this.tourService.createTeam(tour)
-			.subscribe(
-				(res: Response) => {
-					console.log(res);
-				},
-				err => {
-					console.error(err);
-				});
-	}
-
 }

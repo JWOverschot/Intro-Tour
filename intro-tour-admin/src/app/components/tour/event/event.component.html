@@ -1,0 +1,58 @@
+<div class="ui two column grid">
+	<div class="row">
+		<div class="column sixteen">
+			<h1>Maak een event aan!</h1>
+			<h3>Klik op de kaart om een locatie te kiezen</h3>
+		</div>
+	</div>
+	<div class="row">
+		<div class="map column">
+			<agm-map [latitude]="curPosition.x" [longitude]="curPosition.y" [zoom]="15" (mapClick)="getLocationOnMap($event)">
+				<agm-marker [latitude]="chosen_lat" [longitude]="chosen_long">
+					<agm-circle [latitude]="chosen_lat" [longitude]="chosen_long" [radius]="range"></agm-circle>
+				</agm-marker>
+			</agm-map>
+			<!-- location -->
+			<form action=""><br>
+				<div *ngIf="chosen_lat != null && chosen_long != null">
+					<h3>Set range:</h3>
+					<input class="ui range black inverted" type="range" min="1" max="25" [(ngModel)]="range" name="range">
+					<p>{{range}}</p> <br><br>
+				</div>
+				<div class="ui input">
+					<input type="text" [(ngModel)]="name" name="name" placeholder="Naam">
+				</div><br><br>
+				<div class="ui input">
+					<input type="text" [(ngModel)]="description" name="description" placeholder="Omschrijving">
+				</div><br><br>
+				<button type="submit" class="ui button normal blue" (click)="saveLocation()">Submit</button>
+			</form><br>
+			<!-- end location -->
+		</div>
+		<div class="column">
+			<div class="ui cards events">
+				<div class="card" *ngFor="let event of events">
+					<div class="content">
+						<div class="header">
+							{{event.location.name}} ({{event.event_id}})
+						</div>
+						<div class="meta">
+							{{event.location.description}}
+						</div>
+						<div class="description">
+							latitude: {{event.location.latitude}} <br>
+							longitude: {{event.location.longitude}} <br><br>
+							radius: {{event.location.radius.data}} meter
+						</div>
+					</div>
+					<div class="extra content">
+						<div class="ui two buttons">
+							<div class="ui basic blue button disabled"><i class="fas fa-pen"></i></div>
+							<div class="ui basic red button" (click)="deleteLocation(event.location.id, event.event_id)"><i class="fas fa-trash-alt"></i></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

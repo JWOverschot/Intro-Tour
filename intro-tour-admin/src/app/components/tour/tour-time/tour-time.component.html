@@ -1,0 +1,15 @@
+<div class="column">
+	<div class="ui form">
+		<div class="three fields">
+			<div class="two wide field">
+				<label for="hours">Uren</label>
+				<input [(ngModel)]="time.h" numericFormControl id="hours" type="text" placeholder="UU" maxlength="17" pattern="\d*">
+			</div>
+			<div class="two wide field">
+				<label for="minutes">Minuten</label>
+				<input [(ngModel)]="time.m" numericFormControl id="minutes" type="text" placeholder="MM" maxlength="19" pattern="\d*">
+			</div>
+		</div>
+	</div>
+	<button class="ui button normal green" (click)="makeTour()">Opslaan</button><br><br>
+</div>

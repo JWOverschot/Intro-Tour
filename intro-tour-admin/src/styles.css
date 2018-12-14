@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-/*Remove spin buttons from number input fields*/
+/*~~Remove spin buttons from number input fields~~*/
 input[type=number].no-spin-btn::-webkit-inner-spin-button, 
 input[type=number].no-spin-btn::-webkit-outer-spin-button { 
   -webkit-appearance: none;
@@ -13,3 +13,148 @@ input[type="number"].no-spin-btn:disabled,
 input[type="number"].no-spin-btn {
     -moz-appearance: textfield;
 }
+/*~~~~*/
+
+.page-m {
+	margin: 10px;
+}
+
+/*~~UI Range~~*/
+.ui.range{
+    -webkit-appearance: none;
+    border-radius: 2px;
+    width: 100%;
+    height: 4px;
+    background-color: rgba(0,0,0,.05);
+    outline: none;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+.ui.range{
+    opacity: 1;
+}
+.ui.range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+	width: 20px;
+	background: #fff linear-gradient(transparent, rgba(0, 0, 0, 0.05));
+	border-radius: 100%;
+	box-shadow: 0 1px 2px 0 rgba(34,36,38,.15),0 0 0 1px rgba(34,36,38,.15) inset;
+}
+
+/*--------------
+ Colors
+---------------*/
+
+/* Red */
+.ui.red.range   {
+	background-color: #DB2828;
+}
+.ui.red.inverted.range {
+	background-color: #FF695E;
+}
+
+/* Orange */
+.ui.orange.range {
+	background-color: #F2711C;
+}
+.ui.orange.inverted.range {
+	background-color: #FF851B;
+}
+
+/* Yellow */
+.ui.yellow.range {
+	background-color: #FBBD08;
+}
+.ui.yellow.inverted.range {
+	background-color: #FFE21F;
+}
+
+/* Olive */
+.ui.olive.range {
+	background-color: #B5CC18;
+}
+.ui.olive.inverted.range {
+	background-color: #D9E778;
+}
+
+/* Green */
+.ui.green.range {
+	background-color: #21BA45;
+}
+.ui.green.inverted.range {
+	background-color: #2ECC40;
+}
+
+/* Teal */
+.ui.teal.range {
+	background-color: #00B5AD;
+}
+.ui.teal.inverted.range {
+	background-color: #6DFFFF;
+}
+
+/* Blue */
+.ui.blue.range {
+	background-color: #2185D0;
+}
+.ui.blue.inverted.range {
+	background-color: #54C8FF;
+}
+
+/* Violet */
+.ui.violet.range {
+	background-color: #6435C9;
+}
+.ui.violet.inverted.range {
+	background-color: #A291FB;
+}
+
+/* Purple */
+.ui.purple.range {
+	background-color: #A333C8;
+}
+.ui.purple.inverted.range {
+	background-color: #DC73FF;
+}
+
+/* Pink */
+.ui.pink.range {
+	background-color: #E03997;
+}
+.ui.pink.inverted.range {
+	background-color: #FF8EDF;
+}
+
+/* Brown */
+.ui.brown.range {
+	background-color: #A5673F;
+}
+.ui.brown.inverted.range {
+	background-color: #D67C1C;
+}
+
+/* Grey */
+.ui.grey.range {
+	background-color: #767676;
+}
+.ui.grey.inverted.range {
+	background-color: #DCDDDE;
+}
+
+/* Black */
+.ui.black.range {
+	background-color: #1b1c1d;
+}
+.ui.black.inverted.range {
+	background-color: #545454;
+}
+/*~~~~*/
+
+/*~~UI Grid~~*/
+.ui.grid {
+	padding-left: 10px !important;
+	padding-right: 10px !important;
+}
+/*~~~~*/
