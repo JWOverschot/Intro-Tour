@@ -13,7 +13,7 @@
 				</agm-marker>
 			</agm-map>
 			<!-- location -->
-			<form action=""><br>
+			<form action="" class="ui form"><br>
 				<div *ngIf="chosen_lat != null && chosen_long != null">
 					<h3>Set range:</h3>
 					<input class="ui range black inverted" type="range" min="1" max="25" [(ngModel)]="range" name="range">
@@ -22,8 +22,8 @@
 				<div class="ui input">
 					<input type="text" [(ngModel)]="name" name="name" placeholder="Naam">
 				</div><br><br>
-				<div class="ui input">
-					<input type="text" [(ngModel)]="description" name="description" placeholder="Omschrijving">
+				<div class="field">
+					<textarea rows="2" [(ngModel)]="description" name="description" placeholder="Omschrijving"></textarea>
 				</div><br><br>
 				<button type="submit" class="ui button normal blue" (click)="saveLocation()">Submit</button>
 			</form><br>
