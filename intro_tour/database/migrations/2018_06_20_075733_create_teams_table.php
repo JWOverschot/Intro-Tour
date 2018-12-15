@@ -17,7 +17,7 @@ class CreateTeamsTable extends Migration
             $table->increments('id');
             $table->string('team_name');
             $table->integer('tour_id');
-            $table->integer('team_score')->default(0);
+            $table->integer('team_score')->default(150);
             $table->timestamps();
         });
     }

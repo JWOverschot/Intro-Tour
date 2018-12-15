@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
-use App\event_tour;
+use App\EventTour;
 use Response;
 use DB;
 
@@ -17,12 +17,12 @@ class EventController extends Controller
      */
     public function index()
     {
-        // $events = DB::table('event_tour')
+        // $events = DB::table('EventTour')
         // ->join('tours', 'tour_id', '=', 'tours.id')
         // ->join('events', 'event_id', '=', 'events.id')
         // ->get();
 
-        $events = event_tour::with('event')
+        $events = EventTour::with('event')
         ->with('tour')
         ->get();
 
@@ -47,7 +47,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $event = Event::create($request->all());
+
+        return response()->json($event, 201);
     }
 
     /**
@@ -58,7 +60,7 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        $events = event_tour::with('event')->with('tour')->where('tour_id', '=', $id)->get();
+        $events = EventTour::with('event')->with('tour')->where('tour_id', '=', $id)->get();
         return $events;
     }
 
@@ -94,5 +96,19 @@ class EventController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function storeEventTour(Request $request)
+    {
+        $event_tour = EventTour::create($request->all());
+
+        return response()->json($event_tour, 201);
+    }
+
+    public function deleteEventTour($id)
+    {
+        EventTour::where('event_id', $id)->delete();
+
+        return response()->json(null, 204);
     }
 }

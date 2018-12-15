@@ -2,13 +2,24 @@
   <div class="ui card">
     <div class="content">
       <div class="header">Welkom {{usr.name}}</div>
+      <div class="description" *ngIf="team.team_leader == usr.id">
+        <p id="team-pin-text">Team Pin: {{team.team_pin}}</p>
+      </div>
     </div>
     <div class="content">
-      <h4 class="ui sub header">{{team.team_name}}</h4>
-      <h4 class="ui sub header">De team pincode is: {{team.team_pin}}</h4>
+      <h4 class="ui sub header">Het team bestaat uit {{totalMembers}} <span *ngIf="totalMembers == 1">persoon</span><span *ngIf="totalMembers > 1">personen</span></h4>
+      <div class="description" *ngFor="let member of members">
+        <p>{{member.name}} <span *ngIf="member.id == team.team_leader"><i class="fas fa-crown" style="color: #ffc938;"></i></span></p>
+      </div>
     </div>
+    <!-- 
+            _
+        .__(.)< (woof)
+         \___)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+     -->
   </div>
-  <div class="bottom">
-    <button class="ui button green big btn" (click)="getUsr()">Bekijk Team Info</button>
-  </div>
+	<!-- ¡¡Temporary button for starting tour!! -->
+	<button class="ui button large green" (click)="startTour()">Start Tour</button>
 </div>

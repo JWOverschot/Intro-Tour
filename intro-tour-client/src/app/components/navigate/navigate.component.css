@@ -3,8 +3,8 @@
     bottom: 0;
     height: 50px;
     width: 100%;
-    background-color: rgb(255, 255, 255);
-    box-shadow: .5px 0px 5px .1px rgba(112,112,112,.5);
+    background-color: var(--sec-bg-color);
+    box-shadow: .5px 0px 5px .1px var(--shadow-color);
     z-index: 100;
 
     display: flex;
@@ -18,9 +18,13 @@
     margin: 0 auto;
     line-height: 50px;
     font-size: 20px;
-    color: rgb(40, 40, 40);
+    color: var(--text-color);
 }
-.selected p, .selected{
-    background-color: rgb(247, 247, 247);
-    color: rgb(0, 183, 239);
+.selected{
+    background-color: var(--sec-bg-color);
+	filter: brightness(97%);
+}
+
+.selected p {
+	color: var(--button-icon-color-selected);
 }

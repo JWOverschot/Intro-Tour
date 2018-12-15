@@ -1,0 +1,22 @@
+<div class="screen">
+	<div id="error_message" class="ui negative message transition hidden">
+		<div class="header">
+			Kan niet inloggen
+		</div>
+		<p>Het lijkt erop dat je niet alle velden hebt ingevult</p>
+	</div>
+	<div class="ui">
+		<div class="ui loader"></div>
+	</div>
+	<div id="team-create-element">
+		<form action="">
+			<h2>Join een Team</h2><br>
+			<div class="ui massive input" id="tour_id_input">
+				<input [(ngModel)]="team.team_pin" type="text" placeholder="Team Pin" name="team_pin" autofocus>
+			</div><br>
+			<div>
+				<input id="submit-button" type="submit" class="massive one ui blue button" value="GO!" (click)="checkIfTeamExists()">
+			</div>
+		</form>
+	</div>
+</div>

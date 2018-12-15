@@ -19,14 +19,19 @@ import { TeamCreateComponent } from './components/team-create/team-create.compon
 import { MinutesSecondsPipe } from './pipes/minutes-seconds.pipe';
 import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 import { PointReplacerPipe } from './pipes/point-replacer.pipe';
+import { TeamJoinComponent } from './components/team-join/team-join.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SettingsComponent } from './components/settings/settings.component';
 
 const appRoutes: Routes = [
 	{ path: 'location', component: LocationPageComponent },
 	{ path: 'home', component: HomeComponent },
 	{ path: 'team-create', component: TeamCreateComponent },
+	{ path: 'team-join', component: TeamJoinComponent },
 	{ path: 'login', component: LoginComponent },
 	{ path: '', component: LoginComponent },
-	{ path: 'leaderboard', component: LeaderboardComponent }
+	{ path: 'leaderboard', component: LeaderboardComponent },
+	{ path: 'settings', component: SettingsComponent }
 ]
 
 @NgModule({
@@ -39,7 +44,10 @@ const appRoutes: Routes = [
 		TeamCreateComponent,
 		MinutesSecondsPipe,
 		LeaderboardComponent,
-		PointReplacerPipe
+		PointReplacerPipe,
+		TeamJoinComponent,
+		HeaderComponent,
+		SettingsComponent
 	],
 	imports: [
 		AppRoutingModule,

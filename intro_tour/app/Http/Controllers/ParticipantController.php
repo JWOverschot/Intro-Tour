@@ -33,12 +33,23 @@ class ParticipantController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Participant  $participant
+     * @param  \App\Participant  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Participant $participant)
+    public function show($id)
     {
-        return $participant;
+        return Participant::where('id', $id)->get();
+    }
+
+    /**
+     * Display the specified resource.
+     * 
+     * @param   \App\Participant  $pin
+     * @return  \Illuminate\Http\Response
+     */
+    public function showTwo($pin)
+    {
+        return Participant::where('team_id', $pin)->get();
     }
 
     /**

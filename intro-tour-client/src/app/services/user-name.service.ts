@@ -1,23 +1,27 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { LocalstorageService } from './localstorage.service';
+import { User } from '../user';
 
 @Injectable()
 export class UserNameService {
 
-  private userNameSource = new BehaviorSubject<string>('John Doe');
-  currentName = this.userNameSource.asObservable();
+	constructor(private storage: LocalstorageService) { }
 
-  private userIdSource = new BehaviorSubject<number>(0);
-  currentId = this.userIdSource.asObservable();
+	private user: User = this.storage.getItem('user');
 
-  constructor() { }
+	private userNameSource = new BehaviorSubject<string>(this.user ? this.user.name : 'No Name');
+	currentName = this.userNameSource.asObservable();
 
-  newName(name: string) {
-    this.userNameSource.next(name);
-  }
+	private userIdSource = new BehaviorSubject<number>(0);
+	currentId = this.userIdSource.asObservable();
 
-  userId(usr){
-    let id = usr.id;
-    this.userIdSource.next(id);
-  }
+	newName(name: string) {
+		this.userNameSource.next(name);
+	}
+
+	userId(usr) {
+		let id = usr.id;
+		this.userIdSource.next(id);
+	}
 }

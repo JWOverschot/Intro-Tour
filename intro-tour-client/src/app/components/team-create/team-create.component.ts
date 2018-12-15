@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
 import { UserNameService } from '../../services/user-name.service';
 import { TeamService } from '../../services/team.service';
 import { MessageTypes } from '../../message-types';
 import { MessagesService } from '../../services/messages.service';
 import { TourService } from '../../services/tour.service';
 import { ParticipantsService } from '../../services/participants.service';
+import { LocalstorageService } from 'src/app/services/localstorage.service';
 import { Player } from '../../player';
 import { Team } from '../../team';
 import { User } from '../../user';
@@ -22,13 +21,13 @@ import * as $ from 'jquery';
 export class TeamCreateComponent implements OnInit {
 
 	constructor(
-		private http: HttpClient,
 		private router: Router,
 		private userName: UserNameService,
 		private teamService: TeamService,
 		private messagesServices: MessagesService,
 		private tourService: TourService,
-		private participantService: ParticipantsService
+		private participantService: ParticipantsService,
+		private localStorage: LocalstorageService,
 	) { }
 
 	player: Player = {
@@ -48,8 +47,8 @@ export class TeamCreateComponent implements OnInit {
 		team_id: null
 	}
 	private teamId: number;
+	private formFieldErrors: boolean = true;
 
-	private apiUrl: string = environment.API_URL;
 	private addLoader() { $('.ui.loader').parent().addClass(['active', 'dimmer']) };
 	private removeLodaer() { $('.ui.loader').parent().removeClass(['active', 'dimmer']); this.router.navigateByUrl('/home'); };
 
@@ -61,26 +60,35 @@ export class TeamCreateComponent implements OnInit {
 				this.messagesServices.setMessage(MessageTypes.Error, 'Oeps', 'Het veld TEAM NAAM is verplicht');
 			} else {
 				document.getElementById('name_input').classList.remove('error');
+				this.formFieldErrors = false;
 			}
 			if (this.team.tour_id == null) {
 				document.getElementById('tour_id_input').classList.add('error');
 				this.messagesServices.setMessage(MessageTypes.Error, 'Oeps', 'Het veld TOUR ID is verplicht');
 			} else {
 				document.getElementById('tour_id_input').classList.remove('error');
+				this.formFieldErrors = false;
 			}
 		} else {
+			this.messagesServices.closeMessage();
 			this.addLoader();
+			this.formFieldErrors = false;
+			this.checkTourId();
 		}
 	}
 
 	// Check if tour exists
 	private checkTourId() {
+		if (this.formFieldErrors) {
+			return;
+		}
 		if (this.team.tour_id !== null) {
 			//this.http.get(this.apiUrl + 'tours/' + this.team.tour_id) old
 			this.tourService.getTour(this.team.tour_id)
 				.subscribe(
 					(res: Response) => {
 						this.createTeam();
+						this.localStorage.setItem('tour', res[0]);
 					},
 					err => {
 						this.removeLodaer();
@@ -94,12 +102,16 @@ export class TeamCreateComponent implements OnInit {
 
 	// Post call to create a new team
 	private createTeam() {
+		if (this.formFieldErrors) {
+			return;
+		}
 		this.teamService.teamName(this.team.team_name);
 		//this.http.post(this.apiUrl + 'teams', this.team) old
 		this.teamService.createTeam(this.team)
 			.subscribe(
 				(res: Team) => {
 					this.team.team_pin = res.team_pin;
+					this.team.team_leader = null;
 					this.createUser(res);
 				},
 				err => {
@@ -113,7 +125,7 @@ export class TeamCreateComponent implements OnInit {
 	// Post call to create new user
 	private createUser(teamRes) {
 		this.teamId = teamRes.id;
-		this.user.team_id = this.teamId;
+		this.user.team_id = teamRes.team_pin;
 		this.user.name = this.player.name;
 		//this.http.post(this.apiUrl + 'participants', this.user) old
 		this.participantService.createUser(this.user)
@@ -133,7 +145,6 @@ export class TeamCreateComponent implements OnInit {
 	// Updates team to add the id of the team leader
 	private updateTeam(userRes) {
 		this.team.team_leader = userRes.id;
-		console.log(this.team);
 		//this.http.put(this.apiUrl + 'teams/' + this.teamId, {team_leader: this.team.team_leader}) old
 		this.teamService.updateTeam(this.teamId, { team_leader: this.team.team_leader })
 			.subscribe(
@@ -151,7 +162,7 @@ export class TeamCreateComponent implements OnInit {
 	}
 
 	public createTeamAndUser() {
-		this.checkTourId();
+		this.messagesServices.closeMessage();
 		this.errorHandler();
 	}
 
@@ -161,6 +172,7 @@ export class TeamCreateComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		$("input:text:visible:first").focus();
 		this.userName.currentName.subscribe(name => this.player.name = name);
 		if (this.player.name == 'John Doe' || this.player.name == undefined) {
 			this.router.navigateByUrl('/login');

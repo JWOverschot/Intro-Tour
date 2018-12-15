@@ -11,31 +11,38 @@ class ParticipantsSeeder extends Seeder
      */
     public function run()
     {
+		$teamId1 = "A8E4";
+		$teamId2 = "859A";
+
         DB::table('participants')->insert
         ([
             [
             'name' => "henk",
-            'team_id' => 1
+            'team_id' => $teamId1
             ],[
             'name' => "harry",
-            'team_id' => 1
+            'team_id' => $teamId1
             ],[
             'name' => "yea",
-            'team_id' => 2
+            'team_id' => $teamId2
             ],[
             'name' => "boi",
-            'team_id' => 2
+            'team_id' => $teamId2
             ]
         ]);
         
         DB::table('teams')->insert
         ([
             [
-            'team_name' => "team1",
-            'tour_id' => 1,
+            'team_name' => "Team A",
+			'tour_id' => 123456,
+			'team_pin' => $teamId1,
+			'team_leader' => 1
             ],[
-            'team_name' => "team2",
-            'tour_id' => 1,
+            'team_name' => "Team Kaas",
+			'tour_id' => 654321,
+			'team_pin' => $teamId2,
+			'team_leader' => 3
             ]
         ]);
 
@@ -53,10 +60,10 @@ class ParticipantsSeeder extends Seeder
         ([
             [
             'admin_id' => 1,
-            'tour_id' => 1,
+            'tour_id' => 123456,
             ],[
-            'admin_id' => 2,
-            'tour_id' => 1,
+            'admin_id' => 1,
+            'tour_id' => 654321,
             ]
         ]);
     }

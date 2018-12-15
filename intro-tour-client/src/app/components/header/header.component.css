@@ -1,0 +1,37 @@
+.page-header {
+    position: absolute;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px .5px 5px .1px rgba(112,112,112,.5);
+    z-index: 100;
+}
+.page-header .ui.container {
+	margin-top: -1rem;
+}
+.header {
+    line-height: 55px;
+    margin: 0 0 0 20px;
+}
+h1.header{
+	overflow: hidden;
+    white-space: nowrap;
+	text-overflow: ellipsis;
+	margin: 0;
+}
+#title {
+    font-family: 'Shrikhand', cursive;
+    color: rgb(90, 90, 90);
+}
+
+div#tour-timer {
+	margin-top: 0.9rem;
+}
+
+div#tour-timer > span {
+	font-family: 'Bree Serif', serif;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 0 1rem;
+}

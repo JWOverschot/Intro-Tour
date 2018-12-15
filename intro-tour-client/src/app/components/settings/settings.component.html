@@ -1,0 +1,25 @@
+<div id="settings-element" class="ui container">
+	<h2 class="ui header center aligned">Settings</h2>
+	<div class="ui horizontal segments">
+		<div class="ui segment">
+			<h5 class="ui attached header">Ingelogd als: {{userName}}</h5>
+		</div>
+		<div class="ui segment right aligned">
+			<button class="ui inverted red button" (click)="toggleModal('logout-conf')">Log out</button>
+		</div>
+	</div>
+</div>
+
+<!-- modal for confirming deleting user -->
+<div class="modal wrong" id="logout-conf">
+	<div class="bar">
+		<p class="modal-title">Gebruiker wordt verwijdert!</p>
+	</div>
+	<div class="center">
+		<p>Weet je zeker dat je gebruiker <b>{{userName}}</b> wildt verwijderen?</p>
+	</div>
+	<div class="bottom">
+		<button class="ui big button flex-btn" (click)="toggleModal('logout-conf')">Annuleer</button>
+		<button class="ui big button red flex-btn" (click)="deleteCurrentUser()">Verwijder</button>
+	</div>
+</div>

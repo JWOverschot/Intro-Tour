@@ -38,7 +38,9 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $location = Location::create($request->all());
+
+        return response()->json($location, 201);
     }
 
     /**
@@ -69,12 +71,14 @@ class LocationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Location  $location
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Location $location)
     {
-        //
+        $location->update($request->all());
+
+        return response()->json($location, 200);
     }
 
     /**
@@ -83,8 +87,10 @@ class LocationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete(Location $location)
     {
-        //
+        $location->delete();
+
+        return response()->json(null, 204);
     }
 }

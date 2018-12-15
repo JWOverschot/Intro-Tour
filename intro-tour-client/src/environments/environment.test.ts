@@ -1,4 +1,5 @@
 export const environment = {
 	production: true,
-	API_URL: 'https://api.intro-tour-test.nl/'
+	name: 'test',
+	API_URL: 'http://intro-tour-test.local/api/'
 };

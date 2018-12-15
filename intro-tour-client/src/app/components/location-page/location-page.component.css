@@ -39,10 +39,27 @@ agm-map{
     margin: 10px 0px 0px 20px;
     font-weight: bold;
 }
+.q-points{
+    font-family: 'Bree Serif', serif;
+    font-size: 20px;
+    margin: 5px 0px 0px 20px;
+    color: #c4c4c4;
+}
 .q-options{
     margin: 10px 0px 0px 20px;
     font-family: 'Bree Serif', serif;
     font-size: 23px;
+}
+.q-hint{
+    position: absolute;
+    width: 100%;
+    background-color: #f2f2f2;
+    top: 70%;
+    display: none;
+}
+.q-hint p{
+    font-family: 'Bree Serif', serif;
+    margin: 20px;
 }
 .btn{
     position: absolute;
@@ -92,16 +109,21 @@ agm-map{
     position: absolute;
     width: 100%;
     bottom: 0px;
-}
-.wrong .bottom{
     display: flex;
     margin: 20px;
 }
 .wrong .bar{
     background-color: rgba(255, 0, 0, 0.5);
 }
+.sure .bar{
+    background-color: aliceblue;
+}
 .info-window-title{
     font-weight: bold;
+}
+#buy-hint-btn{
+    margin-left: 20px; 
+    margin-top: 50px;
 }
 @keyframes animatebottom {
     from {top: 80%; opacity: 0;}

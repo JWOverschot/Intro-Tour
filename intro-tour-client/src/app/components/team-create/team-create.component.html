@@ -1,25 +1,25 @@
 <div class="screen">
-		<div id="error_message" class="ui negative message transition hidden">
-			<div class="header">
-				Kan niet inloggen
+	<div id="error_message" class="ui negative message transition hidden">
+		<div class="header">
+			Kan niet inloggen
+		</div>
+		<p>Het lijkt erop dat je niet alle velden hebt ingevult</p>
+	</div>
+	<div class="ui">
+		<div class="ui loader"></div>
+	</div>
+	<div id="team-create-element">
+		<form action="">
+			<h2>Maak een Team</h2><br>
+			<div class="ui massive input" id="tour_id_input">
+				<input [(ngModel)]="team.tour_id" type="text" placeholder="Tour ID" name="tour_id">
+			</div><br>
+			<div class="ui massive input" id="name_input">
+				<input [(ngModel)]="team.team_name" type="text" placeholder="Team Naam" name="team-name" maxlength="20">
+			</div><br>
+			<div>
+				<input id="submit-button" type="submit" class="massive one ui blue button" value="GO!" (click)="createTeamAndUser()">
 			</div>
-			<p>Het lijkt erop dat je niet alle velden hebt ingevult</p>
-		</div>
-		<div class="ui">
-			<div class="ui loader"></div>
-		</div>
-		<div id="team-create-element">
-			<form action="">
-				<h2>Maak een Team</h2><br>
-				<div class="ui massive input" id="tour_id_input">
-					<input  [(ngModel)]="team.tour_id" type="number" placeholder="Tour ID" (keyup.enter)="onKeyUp()" name="tour_id">
-				</div><br>
-				<div class="ui massive input" id="name_input">
-					<input  [(ngModel)]="team.team_name" type="text" placeholder="Team Naam" name="team-name" maxlength="20">
-				</div><br>
-				<div>
-					<input id="submit-button" type="submit" class="massive one ui blue button" value="GO!" (click)="createTeamAndUser()" >
-				</div>      
-			</form>
-		</div>
+		</form>
+	</div>
 </div>

@@ -34,16 +34,16 @@ export class LeaderboardComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit() {
-		this.subscription = this.scoreService.getTeamsByTourID().subscribe(quote => {
-			this.stockQuote = quote;
-		});
+		// this.subscription = this.scoreService.getTeamsByTourID().subscribe(quote => {
+		// 	this.stockQuote = quote;
+		// });
 
 		//this.teams$ = this.scoreService.getTeamsByTourID(this.tourID);
 		//this.sortArrayByScore(this.teams$);
 	}
 
 	ngOnDestroy() {
-		this.subscription.unsubscribe();
+		// this.subscription.unsubscribe();
 	}
 
 }

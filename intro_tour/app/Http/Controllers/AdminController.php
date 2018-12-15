@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Admin;
+use App\AdminTour;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -36,9 +37,10 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show($id)
     {
-        return $admin;
+        //return $admin;
+        return AdminTour::with('tour')->with('admin')->where('admin_id', $id)->get();
     }
 
     /**
