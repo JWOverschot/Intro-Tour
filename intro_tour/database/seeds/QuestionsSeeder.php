@@ -69,7 +69,7 @@ class QuestionsSeeder extends Seeder
         'right_answer' => "1",
         'question_id' => 2,
         ],
-        [    
+        [
         'answer' => "4 jaar",
         'right_answer' => "0",
         'question_id' => 2,
@@ -80,7 +80,7 @@ class QuestionsSeeder extends Seeder
         'question_id' => 2,
         ],
         // vraag 3 tour 1
-        [    
+        [
         'answer' => "Ja",
         'right_answer' => "1",
         'question_id' => 3,

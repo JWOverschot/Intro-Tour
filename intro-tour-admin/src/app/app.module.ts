@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { EventComponent } from './components/tour/event/event.component';
 import { NavigateComponent } from './components/navigate/navigate.component';
 import { NumericFormControlDirective } from './directives/numericFormControl.directive';
+import { AdminloginComponent } from "./components/adminlogin/adminlogin.component";
 
 import { AgmCoreModule } from '@agm/core';
 import { TourTimeComponent } from './components/tour/tour-time/tour-time.component';
@@ -17,7 +18,8 @@ import { TourComponent } from './components/tour/tour.component';
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'home', component: AppComponent },
-	{ path: 'tour', component: TourComponent }
+	{ path: 'tour', component: TourComponent },
+	{ path: 'admin', component: AdminloginComponent }
 ]
 
 @NgModule({
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
 		NavigateComponent,
 		NumericFormControlDirective,
 		TourTimeComponent,
-		TourComponent
+		TourComponent,
+		AdminloginComponent
 	],
 	imports: [
 		BrowserModule,

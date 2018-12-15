@@ -50,10 +50,12 @@ class ParticipantsSeeder extends Seeder
         ([
             [
             'username' => "NekoBot",
-            'password' => "$2y$12\$hmcfHQzfFLZtVXfdGqQ6Z.PI7C395xWux0CJWtFvHeTJiCufdpxCe",
+            'email' => "admin@test.nl",
+            'password' => hash::make("admin"),
             ],[
             'username' => "KeemStar",
-            'password' => "$2y$12\$hmcfHQzfFLZtVXfdGqQ6Z.PI7C395xWux0CJWtFvHeTJiCufdpxCe",
+            'email' => "admin2@test.nl",
+            'password' => hash::make("admin"),
             ]
         ]);
         DB::table('admin_tour')->insert

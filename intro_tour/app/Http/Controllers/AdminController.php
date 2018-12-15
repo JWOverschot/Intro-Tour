@@ -4,37 +4,36 @@ namespace App\Http\Controllers;
 
 use App\Admin;
 use App\AdminTour;
+use App\User;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+    public $successStatus = 200;
     /**
-     * Display a listing of the resource.
+     * login api
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return Admin::all();
+    public function login(){
+        $data = request()->all();
+        //$data["password"] = hash::make($data["password"]);
+
+        if(Auth::attempt(['email' => $data["email"], 'password' => $data["password"]])){
+            $user = Auth::user();
+            $success['token'] =  $user->createToken('auth')-> accessToken;
+            return response()->json(['success' => $success], $this-> successStatus);
+        }
+        else{
+            return response()->json(['error'=>'Unauthorised', 'data'=>$data], 401);
+        }
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Register api
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        $admin = Admin::create($request->all());
-
-        return response()->json($admin, 201);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -42,31 +41,35 @@ class AdminController extends Controller
         //return $admin;
         return AdminTour::with('tour')->with('admin')->where('admin_id', $id)->get();
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Admin $admin)
+    public function register()
     {
-        $admin->update($request->all());
+        $request = request()->all();
 
-        return response()->json($admin, 200);
+        $validator = Validator::make($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+            'c_password' => 'required|same:password',
+        ]);
+        if ($validator->fails()) {
+            return response()->json(['error'=>$validator->errors()], 401);
+        }
+        $input = $request;
+        $input['password'] = bcrypt($input['password']);
+        $user = User::create($input);
+        $success['token'] =  $user->createToken('auth')-> accessToken;
+        $success['name'] =  $user->name;
+
+        return response()->json(['success'=>$success], $this-> successStatus);
     }
-
     /**
-     * Remove the specified resource from storage.
+     * details api
      *
-     * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function delete(Admin $admin)
+    public function details()
     {
-        $admin->delete();
-
-        return response()->json(null, 204);
+        $user = Auth::user();
+        return response()->json(['success' => $user], $this-> successStatus);
     }
 }

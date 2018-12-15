@@ -15,19 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
 
-Route::get('/passport', function () {
-    return view('vendor/passport/authorize');
-});
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/redirect', function()
-{
-	$query = http_build_query([
-		'client_id' => 'client-id',
-		'redirect_uri' => 'http://intro-tour.local/callback',
-		'response_type' => 'code',
-		'scope' => ''
-	]);
+Auth::routes();
 
-	return redirect('http://intro-tour.local/oauth/authorize?'.$query);
-});
+Route::get('/home', 'HomeController@index')->name('home');

@@ -46,8 +46,8 @@ const appRoutes: Routes = [
 		LeaderboardComponent,
 		PointReplacerPipe,
 		TeamJoinComponent,
-		HeaderComponent,
-		SettingsComponent
+        HeaderComponent,
+        SettingsComponent
 	],
 	imports: [
 		AppRoutingModule,

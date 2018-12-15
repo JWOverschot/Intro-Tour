@@ -50,11 +50,16 @@ Route::get('teamparticipants', 'UserteamController@index');
 Route::get('teamparticipants/{pin}', 'UserteamController@show');
 
 /* Admins */
-Route::get('admins', 'AdminController@index');
-Route::get('admins/{admin}', 'AdminController@show');
-Route::post('admins', 'AdminController@store');
-Route::put('admins/{admin}', 'AdminController@update');
-Route::delete('admins/{admin}', 'AdminController@delete');
+Route::post('loginRequest', 'AdminController@login');
+Route::post('registerRequest', 'AdminController@register');
+
+Route::group(['middleware' => 'auth:api'], function(){
+    Route::get('admins', 'AdminController@index');
+    Route::get('admins/{admin}', 'AdminController@show');
+    Route::post('admins', 'AdminController@store');
+    Route::put('admins/{admin}', 'AdminController@update');
+    Route::delete('admins/{admin}', 'AdminController@delete');
+});
 
 /* Tours */
 Route::get('tours', 'TourController@index');
