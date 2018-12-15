@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class ParticipantsSeeder extends Seeder
 {
@@ -49,13 +50,13 @@ class ParticipantsSeeder extends Seeder
         DB::table('admins')->insert
         ([
             [
-            'username' => "NekoBot",
+            'name' => "NekoBot",
             'email' => "admin@test.nl",
-            'password' => hash::make("admin"),
+            'password' => Hash::make("admin"),
             ],[
-            'username' => "KeemStar",
+            'name' => "KeemStar",
             'email' => "admin2@test.nl",
-            'password' => hash::make("admin"),
+            'password' => Hash::make("admin"),
             ]
         ]);
         DB::table('admin_tour')->insert
