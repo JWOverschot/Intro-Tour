@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tour;
 use Illuminate\Http\Request;
+use Exception;
 
 class TourController extends Controller
 {
@@ -38,7 +39,22 @@ class TourController extends Controller
      */
     public function show($code)
     {
-        return Tour::where('tour_code', $code)->get();
+        try {
+            $tour = Tour::where('tour_code', $code)->get();
+
+            if ($tour) {
+                throw new Exception('No tour found', 404);
+            } else {
+                return response()->json($tour, 200);
+            }
+        } catch (Exception $e) {
+            return response()->json([
+                'error' => [
+                    'msg' => $e->getMessage(),
+                    'code' => $e->getCode()
+                ]
+            ], $e->getCode());
+        }
     }
 
     /**
@@ -50,7 +66,7 @@ class TourController extends Controller
      */
     public function update(Request $request, $code)
     {
-		$tour = Tour::where('tour_code', $code)->update($request->all());
+        $tour = Tour::where('tour_code', $code)->update($request->all());
 
         return response()->json($tour, 200);
     }
