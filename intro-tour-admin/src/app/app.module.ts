@@ -9,17 +9,18 @@ import { EventComponent } from './components/tour/event/event.component';
 import { NavigateComponent } from './components/navigate/navigate.component';
 import { NumericFormControlDirective } from './directives/numericFormControl.directive';
 import { AdminloginComponent } from "./components/adminlogin/adminlogin.component";
+import { RegisterComponent } from './components/register/register.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { TourTimeComponent } from './components/tour/tour-time/tour-time.component';
 import { TourComponent } from './components/tour/tour.component';
 
-
 const appRoutes: Routes = [
 	{ path: '', redirectTo: '/home', pathMatch: 'full' },
 	{ path: 'home', component: AppComponent },
 	{ path: 'tour', component: TourComponent },
-	{ path: 'admin', component: AdminloginComponent }
+	{ path: 'admin', component: AdminloginComponent },
+	{ path: 'register', component: RegisterComponent }
 ]
 
 @NgModule({
@@ -30,7 +31,8 @@ const appRoutes: Routes = [
 		NumericFormControlDirective,
 		TourTimeComponent,
 		TourComponent,
-		AdminloginComponent
+		AdminloginComponent,
+		RegisterComponent
 	],
 	imports: [
 		BrowserModule,
@@ -47,4 +49,5 @@ const appRoutes: Routes = [
 	providers: [],
 	bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

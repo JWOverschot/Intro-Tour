@@ -17,7 +17,7 @@ class LocationController extends Controller
     {
         $locations = Location::all();
         
-        return $locations;
+        return response()->json($locations);
     }
 
     /**
@@ -53,7 +53,7 @@ class LocationController extends Controller
     {
         $locations = Location::where('id', $id)->get();
         
-        return $locations;
+        return response()->json($locations);
     }
 
     /**

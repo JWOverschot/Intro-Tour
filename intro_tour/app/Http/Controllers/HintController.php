@@ -46,7 +46,7 @@ class HintController extends Controller
      */
     public function show($id)
     {
-        return Hint::where('event_id', $id)->get();
+        return response()->json(Hint::where('event_id', $id)->get());
     }
 
     /**

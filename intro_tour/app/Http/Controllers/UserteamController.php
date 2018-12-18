@@ -46,7 +46,7 @@ class UserteamController extends Controller
      */
     public function show($pin)
     {
-        return Participant::where('team_id', $pin)->get();
+        return response()->json(Participant::where('team_id', $pin)->get());
     }
 
     /**

@@ -26,7 +26,7 @@ class EventController extends Controller
         ->with('tour')
         ->get();
 
-        return $events;
+        return response()->json($events);
     }
 
     /**

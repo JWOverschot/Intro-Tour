@@ -14,7 +14,7 @@ class ParticipantController extends Controller
      */
     public function index()
     {
-        return Participant::all();
+        return response()->json(Participant::all());
     }
 
     /**
@@ -38,7 +38,7 @@ class ParticipantController extends Controller
      */
     public function show($id)
     {
-        return Participant::where('id', $id)->get();
+        return response()->json(Participant::where('id', $id)->get());
     }
 
     /**
@@ -49,7 +49,7 @@ class ParticipantController extends Controller
      */
     public function showTwo($pin)
     {
-        return Participant::where('team_id', $pin)->get();
+        return response()->json(Participant::where('team_id', $pin)->get());
     }
 
     /**

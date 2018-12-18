@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AdminLoginService} from "../../service/admin-login.service";
 import * as $ from "jquery";
-import {environment} from "../../../../../intro-tour-client/src/environments/environment";
 
 
 @Component({
@@ -11,8 +10,6 @@ import {environment} from "../../../../../intro-tour-client/src/environments/env
 })
 export class AdminloginComponent implements OnInit {
 
-    private apiUrl: string = environment.API_URL;
-
     constructor(private adminLoginService: AdminLoginService) {}
 
     ngOnInit() {
@@ -21,15 +18,9 @@ export class AdminloginComponent implements OnInit {
 
     loginTo() {
         let data = {
-            email: "tommy@koning.nl" ,
-            password: "admin"
+            email: $("input[name = 'e-mail']").val(),
+            password: $("input[name = 'password']").val()
         };
-
-        $.ajax({
-            url: this.apiUrl + "loginRequest",
-            type: "post",
-            data: data,
-        });
+        this.adminLoginService.SendTo(data, "login");
     }
-
 }

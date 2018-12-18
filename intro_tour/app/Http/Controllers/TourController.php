@@ -14,7 +14,7 @@ class TourController extends Controller
      */
     public function index()
     {
-        return Tour::all();
+        return response()->json(Tour::all());
     }
 
     /**
@@ -38,7 +38,7 @@ class TourController extends Controller
      */
     public function show($code)
     {
-        return Tour::where('tour_code', $code)->get();
+        return response()->json(Tour::where('tour_code', $code)->get());
     }
 
     /**

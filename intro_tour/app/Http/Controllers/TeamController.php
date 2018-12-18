@@ -22,10 +22,10 @@ class TeamController extends Controller
 
 		if ($request->tour) {
 			$id = $request->tour;
-			return Team::where('tour_id', $id)->get();
+			return response()->json(Team::where('tour_id', $id)->get());
 		}
 		else {
-			return Team::all();
+			return response()->json(Team::all());
 		}
     }
 
@@ -54,7 +54,7 @@ class TeamController extends Controller
      */
     public function show($pin)
     {
-        return Team::where('team_pin', $pin)->get();
+        return response()->json(Team::where('team_pin', $pin)->get());
     }
     
     /**

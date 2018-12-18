@@ -19,7 +19,6 @@ class AdminController extends Controller
      */
     public function login(){
         $data = request()->all();
-        //$data["password"] = hash::make($data["password"]);
 
         if(Auth::attempt(['email' => $data["email"], 'password' => $data["password"]])){
             $user = Auth::user();
@@ -27,7 +26,7 @@ class AdminController extends Controller
             return response()->json(['success' => $success], $this-> successStatus);
         }
         else{
-            return response()->json(['error'=>'Unauthorised', 'data'=>$data], 401);
+            return response()->json(['error'=>'Unauthorised'], 401);
         }
     }
 
@@ -46,16 +45,17 @@ class AdminController extends Controller
         $request = request()->all();
 
         $validator = Validator::make($request, [
-            'name' => 'required',
+            'username' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'c_password' => 'required|same:password',
+            'cPassword' => 'required|same:password',
         ]);
         if ($validator->fails()) {
             return response()->json(['error'=>$validator->errors()], 401);
         }
         $input = $request;
         $input['password'] = bcrypt($input['password']);
+        $input['name'] = $input['username'];
         $user = User::create($input);
         $success['token'] =  $user->createToken('auth')-> accessToken;
         $success['name'] =  $user->name;

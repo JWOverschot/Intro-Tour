@@ -17,7 +17,7 @@ class QuestionController extends Controller
     {
         $questions = Question::with('answers')->get();
 
-        return $questions;
+        return response()->json($questions);
     }
 
     /**
@@ -51,7 +51,7 @@ class QuestionController extends Controller
     {
         $questions = Question::with('answers')->where('questions.id', $id)->get();
 
-        return $questions;
+        return response()->json($questions);
     }
 
     /**
