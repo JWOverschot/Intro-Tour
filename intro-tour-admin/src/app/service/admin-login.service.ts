@@ -35,7 +35,7 @@ export class AdminLoginService {
         console.log(locate);
         return this.http.post(this.apiUrl + locate, data, httpData).subscribe(
             res => {
-                localStorage.setItem('currentUser', JSON.stringify({token: res.success.token}));
+                localStorage.setItem('currentUser', JSON.stringify({token: res['success'].token}));
                 this.route.navigateByUrl('/');
             },
             err => {

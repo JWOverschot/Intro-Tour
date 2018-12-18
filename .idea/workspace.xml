@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d532fc8c-72f9-4696-bee4-e42a7884ddf8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intro-tour-admin/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/intro-tour-admin/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/intro-tour-admin/src/app/service/admin-login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/intro-tour-admin/src/app/service/admin-login.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/intro_tour/app/Http/Controllers/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/intro_tour/app/Http/Controllers/AdminController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,8 +20,8 @@
       <file leaf-file-name="AdminController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/intro_tour/app/Http/Controllers/AdminController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="20" />
+            <state relative-caret-position="119">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="e#40#53#0#PHP" expanded="true" />
               </folding>
@@ -34,8 +32,8 @@
       <file leaf-file-name="adminlogin.component.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/intro-tour-admin/src/app/components/adminlogin/adminlogin.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
+            <state relative-caret-position="308">
+              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -43,20 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin-login.service.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="admin-login.service.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/intro-tour-admin/src/app/service/admin-login.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.component.ts" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/intro-tour-admin/src/app/app.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+            <state relative-caret-position="189">
+              <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -93,7 +82,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="bladiebla" />
+        <entry key="$PROJECT_DIR$" value="test" />
       </map>
     </option>
   </component>
@@ -143,8 +132,8 @@
         <option value="$PROJECT_DIR$/intro_tour/app/Http/Controllers/UserteamController.php" />
         <option value="$PROJECT_DIR$/intro_tour/database/migrations/2018_06_20_075645_create_user_table.php" />
         <option value="$PROJECT_DIR$/intro_tour/app/Http/Controllers/AdminController.php" />
-        <option value="$PROJECT_DIR$/intro-tour-admin/src/app/service/admin-login.service.ts" />
         <option value="$PROJECT_DIR$/intro-tour-admin/src/app/app.component.ts" />
+        <option value="$PROJECT_DIR$/intro-tour-admin/src/app/service/admin-login.service.ts" />
       </list>
     </option>
   </component>
@@ -402,6 +391,7 @@
       <workItem from="1544612306517" duration="10949000" />
       <workItem from="1544783917879" duration="4594000" />
       <workItem from="1545062547505" duration="838000" />
+      <workItem from="1545119378377" duration="1665000" />
     </task>
     <task id="LOCAL-00001" summary="begin admin login">
       <created>1543391913679</created>
@@ -421,10 +411,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131832000" />
+    <option name="totallyTimeSpent" value="133523000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -432,9 +422,9 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32838285" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32838285" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="9" visible="true" weight="0.32838285" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.32838285" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30484116" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30937973" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -833,37 +823,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/intro-tour-admin/src/app/components/adminlogin/adminlogin.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="33" selection-start-line="20" selection-start-column="33" selection-end-line="20" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/intro_tour/app/Http/Controllers/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="20" />
+        <state relative-caret-position="119">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="e#40#53#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/intro-tour-admin/src/app/service/admin-login.service.ts">
+    <entry file="file://$PROJECT_DIR$/intro-tour-admin/src/app/components/adminlogin/adminlogin.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="31" column="42" lean-forward="true" selection-start-line="31" selection-start-column="42" selection-end-line="31" selection-end-column="42" />
+        <state relative-caret-position="308">
+          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/intro-tour-admin/src/app/app.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="61" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
+        <state relative-caret-position="153">
+          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/intro-tour-admin/src/app/service/admin-login.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="39" column="14" lean-forward="true" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
         </state>
       </provider>
     </entry>
